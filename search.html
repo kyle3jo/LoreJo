@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lore.jo - Search</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="favicon/favicon16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="favicon//favicon32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="favicon//favicon96x96.png" sizes="96x96">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="module" src="client/search.js"></script>
+	<script src="client/header.js"></script>
+	<script src="client/AddToCart.js"></script>
+</head>
+	<body>
+		<!--Navigation Bar-->
+		<header>
+			<nav>
+				<a href="index.html" id="logoContainer"><img id="logo" src="img/icons/logo.png"/></a>
+				<ul>
+					<li><a href="index.html"><img class="icons" src="img/icons/home.png"/></a></li>
+					<li><a href="viewCart.html"><img class="icons" src="img/icons/cart.png"/></a><label id="cartCount">0</label></li>
+					<li><a href="help.html"><img class="icons" src="img/icons/help.png"/></a></li>
+					<li><a href="myAccount.html"><img class="icons" src="img/icons/account.png"/></a><label id="loginText">Login</label></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="container">
+			<br>
+			<h1>Search</h1>
+			<div class="content">
+				<input type="search" name="mainSearch" id="mainSearch" placeholder="Search an ebook...">
+				<div class="productContainer" id="searchResults">
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer>
+			<a href="aboutUs.html">About Lore.Jo</a><br/><br/>
+			This website was developed by:<br/>
+			Blayde Dietsch (33958764) - Email: <a href="mailto:blaydedietsch@outlook.com">blaydedietsch@outlook.com</a><br />
+			Kyle Trijo (33954876) - Email: <a href="mailto:kyle.trijo@gmail.com">kyle.trijo@gmail.com</a>
+		</footer>
+	</body>
+</html>

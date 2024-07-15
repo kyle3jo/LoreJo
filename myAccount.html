@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lore.jo - Account</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="icon" type="image/png" href="favicon/favicon16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="favicon//favicon32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="favicon//favicon96x96.png" sizes="96x96">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="client/header.js"></script>
+		<script src="client/myAccount.js"></script>
+		
+	</head>
+
+	<!-- Body -->
+	<body>
+		<!--Navigation Bar-->
+		<header>
+			<nav>
+				<a href="index.html" id="logoContainer"><img id="logo" src="img/icons/logo.png"/></a>
+				<div id="Search">
+					<input id="searchBar" type="text" placeholder="Search an ebook..." />
+				</div>
+				<ul>
+					<li id="searchNav"><a href="search.html"><img class="icons" src="img/icons/search.png"/></a></li>
+					<li><a href="index.html"><img class="icons" src="img/icons/home.png"/></a></li>
+					<li><a href="viewCart.html"><img class="icons" src="img/icons/cart.png"/></a><label id="cartCount">0</label></li>
+					<li><a href="help.html"><img class="icons" src="img/icons/help.png"/></a></li>
+					<li><a href="myAccount.html"><img class="icons" src="img/icons/account.png"/></a><label id="loginText">Login</label></li>
+				</ul>
+			</nav>
+		</header>
+
+        <!-- Content -->
+		<div class="container">
+            <div class="content" id="myAccountContent">
+
+				<article id="no_login">
+					<div class="tab">
+						<button class="tablinks left" onclick="openTab(event, 'login');" id="nl_defaultTab">Login</button>
+						<button class="tablinks right" onclick="openTab(event, 'signup');">Sign up</button>
+					</div>
+					<div id="login" class="tabcontent">
+						<form onsubmit="return Login()">
+							<h2>Login</h2><br>
+							<label for="username">Username</label><br>
+							<input type="text" id="username" name="username"><br><br>
+							<label for="password">Password</label><br>
+							<input type="password" id="password" name="password"><br>
+							<p id="loginAlert" style="color: red;"></p><br>
+							<button type="submit" id="btnLogin">Log In</button><br><br>
+						</form>
+					</div>
+					<div id="signup" class="tabcontent">
+						<form onsubmit="return false">
+							<h2>New customer?<br>Sign up here!</h2><br>
+							<label for="signup_username">Username</label><br>
+							<input type="text" id="signup_username" name="signup_username"><br><br>
+							<label for="signup_password">Password</label><br>
+							<input type="password" id="signup_password" name="signup_password"><br><br>
+							<label for="signup_email">Email (Optional)</label><br>
+							<input type="password" id="signup_email" name="signup_email"><br>
+							<p id="signUpAlert" style="color: red;"></p><br>
+							<button type="submit" id="btnSignUp">Sign Up</button>
+						</form>
+					</div>
+				</article>
+
+				<article id="yes_login">
+					<div class="tab loggedIn">
+						<button class="tablinks left" onclick="openTab(event, 'edit');" id="yl_defaultTab">Edit Account</button>
+						<button class="tablinks middle" onclick="openTab(event, 'history');">Order History</button>
+						<button class="tablinks right" onclick="return LogOut();">Logout</button>
+					</div>
+					<div id="edit" class="tabcontent loggedIn">
+						<form onsubmit="return false">
+							<h2>Edit Your Personal Information</h2><br>
+							<label for="edit_email">Email</label><br>
+							<input type="text" id="edit_email" name="edit_email"><br><br>
+							<label for="edit_password">Password</label><br>
+							<input type="edit_password" id="edit_password" name="edit_password"><br><br>
+							<button type="button" id="btnEdit" onclick="">Submit</button><br><br>
+						</form>
+					</div>
+					<div id="history" class="tabcontent loggedIn">
+						<div id="cartContent">
+							<table id="cartTable">
+								<tr>
+									<th>Image</th>
+									<th>Item</th>
+									<th>Quantity</th>
+									<th>Price</th>
+									<th>Total</th>
+								</tr>
+							</table>
+						</div>
+					</div>	
+				</article>
+
+				<article id="yes_login_staff">
+					<div class="tab loggedIn">
+						<button class="tablinks left" onclick="openTab(event, 'edit_staff');" id="yl_defaultTab_staff">Account</button>
+						<button class="tablinks middle" onclick="openTab(event, 'products_staff');">Edit Products</button>
+						<button class="tablinks middle" onclick="openTab(event, 'history_staff');">Order History</button>
+						<button class="tablinks right" onclick="return LogOut();">Logout</button>
+					</div>
+					<div id="edit_staff" class="tabcontent loggedIn">
+						<form onsubmit="return false">
+							<h2>Edit Your Personal Information</h2><br>
+							<label for="edit_email">Email</label><br>
+							<input type="text" id="edit_email_staff" name="edit_email_staff"><br><br>
+							<label for="edit_password_staff">Password</label><br>
+							<input type="edit_password" id="edit_password_staff" name="edit_password_staff"><br><br>
+							<button type="button" id="btnEditStaff" onclick="">Submit</button><br><br>
+						</form><br>
+						<form onsubmit="return false">
+							<h2>Create new staff account</h2><br>
+							<label for="signup_username_staff">Username</label><br>
+							<input type="text" id="signup_username_staff" name="signup_username_staff"><br><br>
+							<label for="signup_password_staff">Password</label><br>
+							<input type="password" id="signup_password_staff" name="signup_password_staff"><br><br>
+							<label for="signup_email_staff">Email (Optional)</label><br>
+							<input type="password" id="signup_email_staff" name="signup_email_staff"><br><br>	
+							<button type="submit" id="btnSignUp_staff">Create</button>
+						</form>
+					</div>
+					<div id="products_staff" class="tabcontent loggedIn">
+						<div id="cartContent">
+							<table id="productTable_staff">
+								<tr>
+									<th>ID</th>
+									<th>Title</th>
+									<th>Volume</th>
+									<th>Revision</th>
+									<th>Franchise</th>
+									<th>Rating</th>
+									<th>Year</th>
+									<th>Price</th>
+									<th>SalePrice</th>
+									<th>ImageUrl</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div id="history_staff" class="tabcontent loggedIn">
+						<div id="cartContent">
+							<table id="cartTable">
+								<tr>
+									<th>Image</th>
+									<th>Item</th>
+									<th>Quantity</th>
+									<th>Price</th>
+									<th>Total</th>
+								</tr>
+							</table>
+						</div>
+					</div>	
+
+				</article>
+
+            </div>
+		</div>
+
+        <!-- Footer -->
+		<footer>
+			<a href="aboutUs.html">About Lore.Jo</a><br/><br/>
+			This website was developed by:<br/>
+			Blayde Dietsch (33958764) - Email: <a href="mailto:blaydedietsch@outlook.com">blaydedietsch@outlook.com</a><br />
+			Kyle Trijo (33954876) - Email: <a href="mailto:kyle.trijo@gmail.com">kyle.trijo@gmail.com</a>
+		</footer>
+	</body>
+</html>

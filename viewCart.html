@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lore.jo - Home</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="icon" type="image/png" href="favicon/favicon16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="favicon//favicon32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="favicon//favicon96x96.png" sizes="96x96">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="client/header.js"></script>
+		<script src="client/viewCart.js"></script>
+	</head>
+
+	<!-- Body -->
+	<body>
+		<!--Navigation Bar-->
+		<header>
+			<nav>
+				<a href="index.html" id="logoContainer"><img id="logo" src="img/icons/logo.png"/></a>
+				<div id="Search">
+					<input id="searchBar" type="text" placeholder="Search an ebook..." />
+				</div>
+				<ul>
+					<li id="searchNav"><a href="search.html"><img class="icons" src="img/icons/search.png"/></a></li>
+					<li><a href="index.html"><img class="icons" src="img/icons/home.png"/></a></li>
+					<li><a href="viewCart.html"><img class="icons" src="img/icons/cart.png"/></a><label id="cartCount">0</label></li>
+					<li><a href="help.html"><img class="icons" src="img/icons/help.png"/></a></li>
+					<li><a href="myAccount.html"><img class="icons" src="img/icons/account.png"/></a><label id="loginText">Login</label></li>
+				</ul>
+			</nav>
+		</header>
+
+        <!-- Content -->
+		<div class="container">
+			<div class="content" >
+				<h1>Your Cart</h1>
+				<!--Cart list (Table)-->
+				<div id="cartContent">
+				<button type="button" class="cartClearBtn" onclick="clearCart();">Clear</button>
+				<table id="cartTable">
+					<tr>
+						<th>Image</th>
+						<th>Item</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Total</th>
+					</tr>
+				</table>
+				</div>
+				<!--Total Price-->
+				<div id="TotalCostContent">
+					<h2>Total Cost</h2>
+					<p id="totalCost">$0</p>
+					<button id="btnCheckout" class="checkOutBtn" onclick="checkout();">Checkout</button>
+				</div>
+			</div>
+		</div>
+
+        <!-- Footer -->
+		<footer>
+			<a href="aboutUs.html">About Lore.Jo</a><br/><br/>
+			This website was developed by:<br/>
+			Blayde Dietsch (33958764) - Email: <a href="mailto:blaydedietsch@outlook.com">blaydedietsch@outlook.com</a><br />
+			Kyle Trijo (33954876) - Email: <a href="mailto:kyle.trijo@gmail.com">kyle.trijo@gmail.com</a>
+		</footer>
+	</body>
+</html>

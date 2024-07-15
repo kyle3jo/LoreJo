@@ -1,0 +1,104 @@
+EBOOK
+- int(5): EBookID [PRIMARY] [NOT_NULL] [AUTO_INCREMENT] [REQUIRED]
+- varchar(): Title [NOT_NULL]
+- int(): Volume [NOT NULL]
+- int(): Revision
+- varchar(): Franchise [NOT_NULL]
+- float(): Rating
+- int():  Year
+- float(): Price [NOT_NULL]
+- float(): SalePrice
+
+ACCOUNT
+- int(5): UserID [PRIMARY] [NOT_NULL] [AUTO_INCREMENT] [REQUIRED]
+- PasswordHash
+- varchar(): FirstName [NOT_NULL]
+- varchar(): LastName
+- varchar(): Email [NOT_NULL]
+- int(10): PhoneNumber
+- int(5): ID_Address [FOREIGN] [NOT_NULL]
+
+ADDRESS
+- int(5): AddressID [PRIMARY] [NOT_NULL] [AUTO_INCREMENT] [REQUIRED]
+- int(): UnitNumber
+- varchar(): Street
+- varchar(): Suburb
+- int(4): Postal Code
+- varchar(): Country
+
+//For images for ebooks
+img/<ID>.jpg (google drive?)
+
+//Queries
+CREATE TABLE EBook(
+    ID int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Title varchar(255) NOT NULL,
+    Volume int(2) NOT NULL,
+    Revision int(1),
+    Franchise varchar(255),
+    Rating float,
+    Year int(4),
+    Price float NOT NULL,
+    SalePrice float
+);
+
+CREATE TABLE Address (
+    ID int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    UnitNumber int,
+    Street varchar(255),
+    Suburb varchar(255),
+    State varchar(255),
+    PostalCode int(4),
+    Country varchar(255)
+
+);
+
+CREATE TABLE Account (
+    ID int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    FirstName varchar(255) NOT NULL,
+    LastName varchar(255),
+    Email varchar(255) NOT NULL,
+    PhoneNumber int(10) NOT NULL,
+    ID_Address int(5) NOT NULL,
+
+    FOREIGN KEY (ID_Address) REFERENCES Address(ID)
+
+);
+
+INSERT INTO ebook (title,volume,revision,franchise,rating,year,price,saleprice)
+VALUES
+('Destiny Lore',1,0,'Destiny',4,2015,10.99,null),
+('Destiny Lore',1,1,'Destiny',4.5,2015,11.99,null),
+('Destiny Lore',2,0,'Destiny',4.3,2016,12.99,null),
+('Destiny 2 Lore',1,0,'Destiny',4.6,2018,9.99,null),
+('Destiny 2 Lore',1,1,'Destiny',4.7,2018,12.99,null),
+('Destiny 2 Lore',2,0,'Destiny',3.9,2019,12.99,null),
+('Destiny 2 Lore',2,1,'Destiny',4.8,2019,15.99,6.9),
+('Half-life Lore',1,0,'Half-life',3.5,2014,9.99,null),
+('Half-life Lore',1,1,'Half-life',2.2,2014,12.99,null),
+('Half-life Lore',2,0,'Half-life',3.9,2015,12.99,4.9),
+('Half-life 2 Lore',1,0,'Half-life',3.5,2014,9.99,null),
+('Half-life 2 Lore',1,1,'Half-life',2.2,2014,11.99,null),
+('Half-life 2 Lore',1,2,'Half-life',4.3,2015,12.99,null),
+('Half-life 2 Lore',2,0,'Half-life',4,2017,12.99,7.9),
+('One Shot Lore',1,0,'One shot',4.7,2017,12.99,null),
+('One Shot Lore',1,1,'One shot',4.1,2017,12.99,null),
+('One Shot Lore',2,0,'One shot',4.3,2018,12.99,null),
+('Subnautica',1,0,'Subnautica',4.8,2015,9.99,null),
+('Subnautica',1,1,'Subnautica',5,2017,12.99,null),
+('Subnautica',2,0,'Subnautica',4.3,2017,12.99,null),
+('Subnautica Below Zero',1,0,'Subnautica',4.8,2020,12.99,null),
+('Subnautica Below Zero',1,1,'Subnautica',4.6,2020,13.99,7.9),
+('Portal',1,0,'Portal',4.2,2013,9.99,null),
+('Portal',1,1,'Portal',4.1,2014,11.99,null),
+('Portal',1,2,'Portal',4.3,2014,12.99,null),
+('Portal 2',1,0,'Portal',3.9,2015,9.99,null),
+('Portal 2',1,1,'Portal',3.8,2015,12.99,null),
+('Ori and the Blind Forest',1,0,'Ori',4.8,2016,9.99,null),
+('Ori and the Blind Forest',1,1,'Ori',3.7,2016,11.99,null),
+('Ori and the Blind Forest',1,2,'Ori',3.9,2017,12.99,null),
+('Ori and the Will of the Wisps',1,0,'Ori',4.4,2020,12.99,null),
+('Ori and the Will of the Wisps',1,1,'Ori',4.5,2020,12.99,null)
+
+//Ebook Cover Resolution (320px x 512px)
+
